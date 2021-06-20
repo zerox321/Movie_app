@@ -6,6 +6,7 @@
 
     <dimen name="movie_iv_w">140dp</dimen>
     <dimen name="movie_iv_h">200dp</dimen>
+
     <dimen name="movie_video_h">200dp</dimen>
     <dimen name="movie_video_w">270dp</dimen>
 </resources>

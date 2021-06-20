@@ -9,6 +9,10 @@
             name="Item"
             type="com.example.datalayer.model.MovieVideo" />
 
+        <variable
+            name="MovieVideoClickListener"
+            type="com.example.moveApp.ui.home.details.adapter.MovieVideoClickListener" />
+
     </data>
 
 
@@ -17,18 +21,44 @@
         android:layout_height="wrap_content"
         android:layout_margin="7dp">
 
-        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-            android:id="@+id/player"
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ImageView"
             android:layout_width="@dimen/movie_video_w"
             android:layout_height="@dimen/movie_video_h"
-            app:autoPlay="false"
+            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:loadVideoPlayer="@{Item.key}"
-            app:showFullScreenButton="false" />
+            app:loadImage="@{Item.thumbnail}"
+            app:loadImageShimmer="@{shimmerFrameLayout}"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            tools:srcCompat="@tools:sample/avatars" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintBottom_toBottomOf="@+id/ImageView"
+            app:layout_constraintEnd_toEndOf="@+id/ImageView"
+            app:layout_constraintStart_toStartOf="@+id/ImageView"
+            app:layout_constraintTop_toTopOf="@+id/ImageView"
+            tools:visibility="invisible">
 
+            <include layout="@layout/image_place_holder" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/playIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_play_view"
+            app:layout_constraintBottom_toBottomOf="@+id/ImageView"
+            app:layout_constraintEnd_toEndOf="@+id/ImageView"
+            app:layout_constraintStart_toStartOf="@+id/ImageView"
+            app:layout_constraintTop_toTopOf="@+id/ImageView" />
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/titleTv"
             android:layout_width="0dp"
@@ -43,9 +73,9 @@
             android:textColor="@color/white"
             android:textSize="@dimen/mainFont"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/player"
-            app:layout_constraintStart_toStartOf="@+id/player"
-            app:layout_constraintTop_toBottomOf="@+id/player"
+            app:layout_constraintEnd_toEndOf="@+id/ImageView"
+            app:layout_constraintStart_toStartOf="@+id/ImageView"
+            app:layout_constraintTop_toBottomOf="@+id/ImageView"
             tools:text="Salmon Teriyaki" />
 
 

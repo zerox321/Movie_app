@@ -6,7 +6,7 @@ import com.example.moveApp.databinding.MovieRowItemBinding
 
 class MovieViewHolder(
     private val binding: MovieRowItemBinding,
-    private val clickListener: MovieClickListener?
+    private val clickListener: MovieClickListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Movie?) {

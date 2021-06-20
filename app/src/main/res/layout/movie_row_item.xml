@@ -29,7 +29,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:loadImage="@{Item.poster_path}"
+            app:loadImage="@{Item.posterImage}"
             app:loadImageShimmer="@{shimmerFrameLayout}"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
             tools:srcCompat="@tools:sample/avatars" />

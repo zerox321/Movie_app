@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import com.example.datalayer.model.Movie
 import com.example.moveApp.databinding.MovieRowItemBinding
 
-class MovieAdapter(private val clickListener: MovieClickListener? = null) :
+class MovieAdapter(private val clickListener: MovieClickListener) :
     PagingDataAdapter<Movie, MovieViewHolder>(MovieDiffCallback) {
 
     override fun onCreateViewHolder(

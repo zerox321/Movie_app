@@ -11,4 +11,9 @@ data class MovieVideo(
     val site: String? = "",
     val size: Int? = 0,
     val type: String? = ""
-)
+){
+    fun getThumbnail():String="https://i.ytimg.com/vi/$key/hqdefault.jpg"
+
+
+
+}

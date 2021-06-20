@@ -23,8 +23,7 @@ import kotlinx.coroutines.flow.collect
 
 
 @AndroidEntryPoint
-class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
-    MovieClickListener {
+class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main), MovieClickListener {
 
     private val viewModel by viewModels<MainViewModel>()
 

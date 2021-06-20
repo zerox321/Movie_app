@@ -1,4 +1,4 @@
-package com.example.moveApp.ui.home.dataSource
+package com.example.moveApp.core
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

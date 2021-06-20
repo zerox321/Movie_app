@@ -14,8 +14,8 @@ import com.example.moveApp.BuildConfig
 import com.example.moveApp.R
 import com.example.moveApp.core.BaseFragment
 import com.example.moveApp.databinding.FragmentMainBinding
-import com.example.moveApp.ui.home.adapter.MenuClickListener
 import com.example.moveApp.ui.home.adapter.MovieAdapter
+import com.example.moveApp.ui.home.adapter.MovieClickListener
 import com.example.moveApp.util.NavigationUtil.findNavigationController
 import com.example.moveApp.util.NavigationUtil.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,12 +24,46 @@ import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
-    MenuClickListener {
+    MovieClickListener {
 
     private val viewModel by viewModels<MainViewModel>()
-    private val popularAdapter: MovieAdapter = MovieAdapter(this)
-    private val topRatedAdapter: MovieAdapter = MovieAdapter(this)
-    private val upComingAdapter: MovieAdapter = MovieAdapter(this)
+
+    private val popularAdapter: MovieAdapter by lazy {
+        MovieAdapter(this).apply {
+            addLoadStateListener { state ->
+                when (state.refresh) {
+                    is LoadState.Loading -> viewModel.setPopularLoading(isLoading = true)
+                    is LoadState.Error -> {
+                    }
+                    is LoadState.NotLoading -> viewModel.setPopularLoading(isLoading = false)
+                }
+            }
+        }
+    }
+    private val topRatedAdapter: MovieAdapter by lazy {
+        MovieAdapter(this).apply {
+            addLoadStateListener { state ->
+                when (state.refresh) {
+                    is LoadState.Loading -> viewModel.setTopRatedLoading(isLoading = true)
+                    is LoadState.Error -> {
+                    }
+                    is LoadState.NotLoading -> viewModel.setTopRatedLoading(isLoading = false)
+                }
+            }
+        }
+    }
+    private val upComingAdapter: MovieAdapter by lazy {
+        MovieAdapter(this).apply {
+            addLoadStateListener { state ->
+                when (state.refresh) {
+                    is LoadState.Loading -> viewModel.setUpComingLoadingLoading(isLoading = true)
+                    is LoadState.Error -> {
+                    }
+                    is LoadState.NotLoading -> viewModel.setUpComingLoadingLoading(isLoading = false)
+                }
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -45,41 +79,19 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Todo observe Movies response
+        // Todo observe Popular Movies response
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.popularFlow.collect { response -> popularAdapter.submitData(response) }
         }
-        popularAdapter.addLoadStateListener { state ->
-            when (state.refresh) {
-                is LoadState.Loading -> viewModel.setPopularLoading(isLoading = true)
-                is LoadState.Error -> {
-                }
-                is LoadState.NotLoading -> viewModel.setPopularLoading(isLoading = false)
-            }
-        }
-
+        // Todo observe Top Rated Movies response
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.topRatedFlow.collect { response -> topRatedAdapter.submitData(response) }
         }
-        topRatedAdapter.addLoadStateListener { state ->
-            when (state.refresh) {
-                is LoadState.Loading -> viewModel.setTopRatedLoading(isLoading = true)
-                is LoadState.Error -> {
-                }
-                is LoadState.NotLoading -> viewModel.setTopRatedLoading(isLoading = false)
-            }
-        }
+        // Todo observe Up coming Movies response
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.upComingFlow.collect { response -> upComingAdapter.submitData(response) }
         }
-        upComingAdapter.addLoadStateListener { state ->
-            when (state.refresh) {
-                is LoadState.Loading -> viewModel.setUpComingLoadingLoading(isLoading = true)
-                is LoadState.Error -> {
-                }
-                is LoadState.NotLoading -> viewModel.setUpComingLoadingLoading(isLoading = false)
-            }
-        }
+
     }
 
     private fun onError(throwable: Throwable) {

@@ -27,25 +27,26 @@ object NetworkProviderModule {
     @ViewModelScoped
     fun providePagerConfig(): PagingConfig = PagingConfig(pageSize = 20)
 
-    // provide PagingConfig with ViewModel Scope
+    // provide PopularMovieDataSource with ViewModel Scope
     @Provides
     @ViewModelScoped
     fun providePopularMovieDataSource(movieService: MovieService) = PopularMovieDataSource(
         movieService = movieService
     )
-    // provide PagingConfig with ViewModel Scope
+
+    // provide TopRatedMovieDataSource with ViewModel Scope
     @Provides
     @ViewModelScoped
     fun provideTopRatedMovieDataSource(movieService: MovieService) = TopRatedMovieDataSource(
         movieService = movieService
     )
-    // provide PagingConfig with ViewModel Scope
+
+    // provide UpComingMovieDataSource with ViewModel Scope
     @Provides
     @ViewModelScoped
     fun provideUpComingMovieDataSource(movieService: MovieService) = UpComingMovieDataSource(
         movieService = movieService
     )
-
 
 
 }

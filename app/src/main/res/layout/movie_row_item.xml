@@ -11,7 +11,7 @@
 
         <variable
             name="ClickListener"
-            type="com.example.moveApp.ui.home.adapter.MenuClickListener" />
+            type="com.example.moveApp.ui.home.adapter.MovieClickListener" />
     </data>
 
 

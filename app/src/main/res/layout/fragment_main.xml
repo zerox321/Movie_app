@@ -166,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:animateLayoutChanges="true"
                 android:orientation="horizontal"
-                app:bindShimmer="@{viewModel.topRatedLoading}"
+                app:bindShimmer="@{viewModel.upComingLoading}"
                 app:layout_constraintStart_toStartOf="@+id/upComingTv"
                 app:layout_constraintTop_toBottomOf="@+id/upComingTv"
                 tools:visibility="invisible">

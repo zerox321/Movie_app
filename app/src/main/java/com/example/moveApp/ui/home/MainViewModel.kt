@@ -21,20 +21,20 @@ class MainViewModel @Inject constructor(
     upComingMovieDataSource: UpComingMovieDataSource
 ) : ViewModel() {
     val popularFlow = Pager(pagerConfig) { popularMovieDataSource }.flow.cachedIn(viewModelScope)
-    val topRatedFlow = Pager(pagerConfig) { topRatedMovieDataSource }.flow.cachedIn(viewModelScope)
-    val upComingFlow = Pager(pagerConfig) { upComingMovieDataSource }.flow.cachedIn(viewModelScope)
-
     private val _popularLoading = MutableLiveData<Boolean>()
     val popularLoading: LiveData<Boolean> get() = _popularLoading
     fun setPopularLoading(isLoading: Boolean) {
         _popularLoading.value = isLoading
     }
 
+    val topRatedFlow = Pager(pagerConfig) { topRatedMovieDataSource }.flow.cachedIn(viewModelScope)
     private val _topRatedLoading = MutableLiveData<Boolean>()
     val topRatedLoading: LiveData<Boolean> get() = _topRatedLoading
     fun setTopRatedLoading(isLoading: Boolean) {
         _topRatedLoading.value = isLoading
     }
+
+    val upComingFlow = Pager(pagerConfig) { upComingMovieDataSource }.flow.cachedIn(viewModelScope)
     private val _upComingLoading = MutableLiveData<Boolean>()
     val upComingLoading: LiveData<Boolean> get() = _upComingLoading
     fun setUpComingLoadingLoading(isLoading: Boolean) {

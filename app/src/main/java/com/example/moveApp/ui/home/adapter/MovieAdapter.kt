@@ -6,19 +6,19 @@ import androidx.paging.PagingDataAdapter
 import com.example.datalayer.model.Movie
 import com.example.moveApp.databinding.MovieRowItemBinding
 
-class MovieAdapter(private val clickListener: MenuClickListener? = null) :
-    PagingDataAdapter<Movie, MenuViewHolder>(MenuDiffCallback) {
+class MovieAdapter(private val clickListener: MovieClickListener? = null) :
+    PagingDataAdapter<Movie, MovieViewHolder>(MovieDiffCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MenuViewHolder = MenuViewHolder(
+    ): MovieViewHolder = MovieViewHolder(
         binding = MovieRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
         clickListener = clickListener
     )
 
 
-    override fun onBindViewHolder(holder: MenuViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) =
         holder.bind(item=getItem(position))
 
 

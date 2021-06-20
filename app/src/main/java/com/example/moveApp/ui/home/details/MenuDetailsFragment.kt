@@ -16,6 +16,7 @@ import com.example.moveApp.databinding.MenuDetailsFragmentBinding
 import com.example.moveApp.ui.home.details.adapter.MovieVideoAdapter
 import com.example.moveApp.ui.home.details.adapter.MovieVideoClickListener
 import com.example.moveApp.util.NavigationUtil.findNavigationController
+import com.example.moveApp.util.NavigationUtil.navigateTo
 import com.example.moveApp.util.NavigationUtil.popStack
 import com.example.moveApp.util.StateFlowObserver.nonNullFlowObserver
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,6 +61,12 @@ class MenuDetailsFragment :
 
     override fun onItemClick(v: View, item: MovieVideo) {
 
+        val args = Bundle().apply {
+            putString("key", item.key)
+            putString("title", args.title)
+        }
+        v.findNavigationController()
+            .navigateTo(id = R.id.action_MovieDetailsFragment_to_VideoPlayerFragment, args = args)
     }
 
 

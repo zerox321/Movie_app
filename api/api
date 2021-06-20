@@ -1,0 +1,75 @@
+[{
+	"id": 1,
+		"name": "Chicken Overload Meal",
+		"rate": 2.5,
+		"color": "#CFA9AB",
+		"description": "Grilled chicken & tandoori chicken in masala curry",
+		"price": 185,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/3.jpg?raw=true"	
+
+	},
+	{
+		"id": 2,
+		"name": "Grilled Mushroom and Vegetables",
+		"rate": 3.5,
+		"color": "#E8AEB1",
+		"description": "Spcie grills mushrooms, cucumber, apples and lot more",
+		"price": 150,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/2.jpg?raw=true"
+	},
+	{
+		
+		"id": 3,
+		"name": "Salmon Teriyaki",
+		"rate": 4.5,
+		"color": "#CFA9AB",
+		"description": "Roasted salon dumped in soa sauce and mint",
+		"price": 140,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/1.jpg?raw=true"
+	},
+	{
+		"id": 4,
+		"name": "Chinese Egg Fry",
+		"rate": 4,
+		"color": "#E8AEB1",
+		"description": "Exotic eggs Fried served steaming hot",
+		"price": 250,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/4.jpg?raw=true"
+	},
+	{
+		"id": 5,
+		"name": "Chicken Wraps",
+		"rate": 5,
+		"color": "#CFA9AB",
+		"description": "Grilled chicken tikka rool wrapped",
+		"price": 140,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/5.jpg?raw=true"
+	},
+	{
+		"id": 6,
+		"name": "Veggie Delight",
+		"rate": 3.5,
+		"color": "#E8AEB1",
+		"description": "Loads of veggies with olives",
+		"price": 230,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/6.jpg?raw=true"
+	},
+ 	{
+		"id": 7,
+		"name": "Seafood Combo",
+		"rate": 3.5,
+		"color": "#CFA9AB",
+		"description": "combo of prawns, scallop, sliced fish, calanmari, potato fries",
+		"price": 330,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/7.jpg?raw=true"
+	},
+	{
+		"id": 8,
+		"name": "Full Tandoori",
+		"rate": 3.5,
+		"color": "#E8AEB1",
+		"description": "Chicken roated with lip smacking mayo dressing",
+		"price": 430,
+		"thumbnail": "https://github.com/zerox321/Resturant/blob/master/api/8.jpg?raw=true"
+	}
+]

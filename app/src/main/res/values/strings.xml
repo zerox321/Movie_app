@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="no_internet">"No Internet "</string>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="content">Content</string>
+    <string name="main">Main</string>
+    <string name="up_Coming">Up Coming</string>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Movie_APP.iml" filepath="$PROJECT_DIR$/.idea/modules/Movie_APP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Movie_APP.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Movie_APP.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Movie_APP.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Movie_APP.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Movie_APP.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Movie_APP.domain.iml" />
+    </modules>
+  </component>
+</project>

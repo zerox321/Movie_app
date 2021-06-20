@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#22232C</color>
+    <color name="primaryDark">#22232C</color>
+
+    <color name="black">#FF000000</color>
+    <color name="grey">#969696</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gold">#FCC000</color>
+    <color name="background">#E7E7E7</color>
+    <color name="text_shadow">#7F000000</color>
+    <color name="shimmer_place_holder">#C8C8C8</color>
+
+</resources>

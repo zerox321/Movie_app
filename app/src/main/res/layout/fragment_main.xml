@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.moveApp.ui.home.MainViewModel" />
+
+        <variable
+            name="PopularAdapter"
+            type="com.example.moveApp.ui.home.adapter.MovieAdapter" />
+
+        <variable
+            name="TopRatedAdapter"
+            type="com.example.moveApp.ui.home.adapter.MovieAdapter" />
+
+        <variable
+            name="UpComingAdapter"
+            type="com.example.moveApp.ui.home.adapter.MovieAdapter" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.home.MainFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/popularTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:padding="7dp"
+                android:text="@string/popular"
+                android:textColor="@color/white"
+                android:textSize="@dimen/headerFont"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularRv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:adapter="@{PopularAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/popularTv"
+                app:layout_constraintTop_toBottomOf="@+id/popularTv"
+                tools:listitem="@layout/movie_row_item" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/popularShimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal"
+                app:bindShimmer="@{viewModel.popularLoading}"
+                app:layout_constraintStart_toStartOf="@+id/popularTv"
+                app:layout_constraintTop_toBottomOf="@+id/popularTv"
+                tools:visibility="invisible">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/topRatedTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:padding="7dp"
+                android:text="@string/top_rated"
+                android:textColor="@color/white"
+                android:textSize="@dimen/headerFont"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/popularShimmer" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topRatedRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:adapter="@{TopRatedAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/topRatedTv"
+                app:layout_constraintTop_toBottomOf="@+id/topRatedTv"
+                tools:listitem="@layout/movie_row_item" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/topRatedShimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal"
+                app:bindShimmer="@{viewModel.topRatedLoading}"
+                app:layout_constraintStart_toStartOf="@+id/topRatedTv"
+                app:layout_constraintTop_toBottomOf="@+id/topRatedTv"
+                tools:visibility="invisible">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/upComingTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:padding="7dp"
+                android:text="@string/up_Coming"
+                android:textColor="@color/white"
+                android:textSize="@dimen/headerFont"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topRatedShimmer" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/upComingRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:adapter="@{UpComingAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/upComingTv"
+                app:layout_constraintTop_toBottomOf="@+id/upComingTv"
+                tools:listitem="@layout/movie_row_item" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/upComingShimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal"
+                app:bindShimmer="@{viewModel.topRatedLoading}"
+                app:layout_constraintStart_toStartOf="@+id/upComingTv"
+                app:layout_constraintTop_toBottomOf="@+id/upComingTv"
+                tools:visibility="invisible">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+
+                    <include layout="@layout/menu_item_placeholder_layout" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

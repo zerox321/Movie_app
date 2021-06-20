@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="headerFont">25sp</dimen>
+    <dimen name="mainFont">15sp</dimen>
+    <dimen name="secondFont">12sp</dimen>
+
+    <dimen name="movie_iv_w">140dp</dimen>
+    <dimen name="movie_iv_h">200dp</dimen>
+</resources>

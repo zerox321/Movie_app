@@ -9,6 +9,11 @@
         <variable
             name="Item"
             type="com.example.datalayer.model.Movie" />
+
+        <variable
+            name="MovieVideoAdapter"
+            type="com.example.moveApp.ui.home.details.adapter.MovieVideoAdapter" />
+
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -49,6 +54,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/contentTitle"
                 tools:text="Content" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/videoRv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:adapter="@{MovieVideoAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desc"
+                tools:listitem="@layout/video_row_item" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -5,9 +5,19 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="Item"
             type="com.example.datalayer.model.Movie" />
+
+        <variable
+            name="viewModel"
+            type="com.example.moveApp.ui.home.details.MovieDetailsViewModel" />
+
+        <variable
+            name="MovieVideoAdapter"
+            type="com.example.moveApp.ui.home.details.adapter.MovieVideoAdapter" />
 
 
     </data>
@@ -28,7 +38,9 @@
                 android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:collapsedTitleTextAppearance="@style/ExpandedToolbarLayoutExpandedTextStyle"
                 app:contentScrim="@color/primary"
+                app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <include
@@ -42,7 +54,8 @@
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
                     app:navigationIcon="@drawable/ic_back"
-                    app:popupTheme="@style/Theme.BaseProject.PopupOverlay" />
+                    app:popupTheme="@style/Theme.BaseProject.PopupOverlay"
+                    app:title="@{Item.title}" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
@@ -50,7 +63,8 @@
         <include
             android:id="@+id/content_movie_details"
             layout="@layout/content_movie_details"
-            app:Item="@{Item}" />
+            app:Item="@{Item}"
+            app:MovieVideoAdapter="@{MovieVideoAdapter}" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

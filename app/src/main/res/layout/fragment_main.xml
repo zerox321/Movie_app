@@ -36,6 +36,23 @@
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/searchIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                app:layout_constraintEnd_toStartOf="@+id/notificationIv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_search" />
+   <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/notificationIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_notification" />
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/popularTv"
                 android:layout_width="wrap_content"

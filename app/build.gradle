@@ -89,6 +89,7 @@ dependencies {
 
     implementation "androidx.paging:paging-runtime-ktx:3.0.0"
 
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
 
 }

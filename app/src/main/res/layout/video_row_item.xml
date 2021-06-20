@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="Item"
+            type="com.example.datalayer.model.MovieVideo" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp">
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/player"
+            android:layout_width="@dimen/movie_video_w"
+            android:layout_height="@dimen/movie_video_h"
+            app:autoPlay="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadVideoPlayer="@{Item.key}"
+            app:showFullScreenButton="false" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:singleLine="true"
+            android:text="@{Item.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mainFont"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/player"
+            app:layout_constraintStart_toStartOf="@+id/player"
+            app:layout_constraintTop_toBottomOf="@+id/player"
+            tools:text="Salmon Teriyaki" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

@@ -2,6 +2,7 @@ package com.example.moveApp.di
 
 import androidx.paging.PagingConfig
 import com.example.domainlayer.remote.MovieService
+import com.example.domainlayer.remote.MovieVideosService
 import com.example.moveApp.ui.home.dataSource.PopularMovieDataSource
 import com.example.moveApp.ui.home.dataSource.TopRatedMovieDataSource
 import com.example.moveApp.ui.home.dataSource.UpComingMovieDataSource
@@ -21,6 +22,12 @@ object NetworkProviderModule {
     @ViewModelScoped
     fun provideMovieService(retrofit: Retrofit): MovieService =
         retrofit.create(MovieService::class.java)
+
+    // provide MovieVideosService with ViewModel Scope
+    @Provides
+    @ViewModelScoped
+    fun provideMovieVideosService(retrofit: Retrofit): MovieVideosService =
+        retrofit.create(MovieVideosService::class.java)
 
     // provide PagingConfig with ViewModel Scope
     @Provides

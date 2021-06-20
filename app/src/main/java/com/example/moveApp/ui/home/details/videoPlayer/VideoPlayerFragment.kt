@@ -21,6 +21,7 @@ class VideoPlayerFragment :
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
+            lifecycle.addObserver(player)
             player.loadVideoPlayer(args.key)
         }.root
     }

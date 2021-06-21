@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.mvvmEx",
+  "applicationId": "com.example.moveApp",
   "variantName": "processReleaseResources",
   "elements": [
     {

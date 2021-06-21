@@ -31,7 +31,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "Resturant.apk"
+            outputFileName = "Movie app.apk"
         }
     }
     compileOptions {

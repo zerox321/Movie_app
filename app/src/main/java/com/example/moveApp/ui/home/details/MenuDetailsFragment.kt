@@ -1,5 +1,6 @@
 package com.example.moveApp.ui.home.details
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,8 @@ class MenuDetailsFragment :
     private val args: MenuDetailsFragmentArgs by navArgs()
 
     private val viewModel by viewModels<MovieDetailsViewModel>()
-    private val movieVideoAdapter by lazy { MovieVideoAdapter(movieVideoClickListener = this) }
+    private val movieVideoAdapter = MovieVideoAdapter(movieVideoClickListener = this)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -42,6 +44,7 @@ class MenuDetailsFragment :
         }.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Todo observe Videos response
@@ -52,8 +55,7 @@ class MenuDetailsFragment :
                 when (response) {
                     is BaseResponse.Loading -> viewModel.setLoading(response.loading)
                     is BaseResponse.Success -> movieVideoAdapter.submitList(response.data.results)
-                    is BaseResponse.Error -> {
-                    }
+                    is BaseResponse.Error -> { }
                 }
             }
         )

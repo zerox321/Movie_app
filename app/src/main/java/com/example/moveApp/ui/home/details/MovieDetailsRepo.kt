@@ -1,7 +1,5 @@
 package com.example.moveApp.ui.home.details
 
-import com.example.datalayer.model.MenuItem
-import com.example.datalayer.model.MovieVideo
 import com.example.datalayer.model.VideoResponse
 import com.example.domainlayer.remote.MovieVideosService
 import com.example.moveApp.core.BaseRepository

@@ -13,7 +13,7 @@ object StateFlowObserver {
         flow: Flow<T?>,
         result: (T) -> Unit
     ) {
-        scope.launch {
+        scope.launchWhenStarted {
             flow.filterNotNull().collect { response -> result(response) }
         }
     }

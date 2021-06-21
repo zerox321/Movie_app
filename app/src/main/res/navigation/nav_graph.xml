@@ -29,23 +29,6 @@
         <argument
             android:name="title"
             app:argType="string" />
-        <action
-            android:id="@+id/action_MovieDetailsFragment_to_VideoPlayerFragment"
-            app:destination="@id/VideoPlayerFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/VideoPlayerFragment"
-        android:name="com.example.moveApp.ui.home.details.videoPlayer.VideoPlayerFragment"
-        android:label="{title}"
-        tools:layout="@layout/fragment_video_player">
-
-
-        <argument
-            android:name="key"
-            app:argType="string" />
-        <argument
-            android:name="title"
-            app:argType="string" />
-    </fragment>
 </navigation>

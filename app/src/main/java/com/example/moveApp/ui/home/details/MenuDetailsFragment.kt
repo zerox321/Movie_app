@@ -1,6 +1,5 @@
 package com.example.moveApp.ui.home.details
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.example.datalayer.model.Movie
 import com.example.datalayer.model.MovieVideo
 import com.example.moveApp.R
 import com.example.moveApp.core.BaseFragment
@@ -17,9 +15,9 @@ import com.example.moveApp.databinding.MenuDetailsFragmentBinding
 import com.example.moveApp.ui.home.details.adapter.MovieVideoAdapter
 import com.example.moveApp.ui.home.details.adapter.MovieVideoClickListener
 import com.example.moveApp.util.NavigationUtil.findNavigationController
-import com.example.moveApp.util.NavigationUtil.navigateTo
 import com.example.moveApp.util.NavigationUtil.popStack
 import com.example.moveApp.util.StateFlowObserver.nonNullFlowObserver
+import com.example.moveApp.util.YoutubeLauncher.watchYoutubeVideo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,7 +28,9 @@ class MenuDetailsFragment :
     private val args: MenuDetailsFragmentArgs by navArgs()
 
     private val viewModel by viewModels<MovieDetailsViewModel>()
-    private val movieVideoAdapter = MovieVideoAdapter(movieVideoClickListener = this)
+    private val movieVideoAdapter: MovieVideoAdapter by lazy {
+        MovieVideoAdapter(movieVideoClickListener = this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -55,20 +55,15 @@ class MenuDetailsFragment :
                 when (response) {
                     is BaseResponse.Loading -> viewModel.setLoading(response.loading)
                     is BaseResponse.Success -> movieVideoAdapter.submitList(response.data.results)
-                    is BaseResponse.Error -> { }
+                    is BaseResponse.Error -> {
+                    }
                 }
             }
         )
     }
 
     override fun onItemClick(v: View, item: MovieVideo) {
-
-        val args = Bundle().apply {
-            putString("key", item.key)
-            putString("title", args.title)
-        }
-        v.findNavigationController()
-            .navigateTo(id = R.id.action_MovieDetailsFragment_to_VideoPlayerFragment, args = args)
+        context?.watchYoutubeVideo(item.key ?: return)
     }
 
 

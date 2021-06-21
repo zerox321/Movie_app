@@ -33,7 +33,7 @@ data class Movie(
         "$release_date | $original_language | $vote_average / 10"
 
     fun getGenresName() = genre_ids?.joinToString { getGenresName(it) }
-    fun getPosterImage() = "https://image.tmdb.org/t/p/original$poster_path"
-    fun getBackDropImage() = "https://image.tmdb.org/t/p/original$backdrop_path"
+    fun getPosterImage() = "https://image.tmdb.org/t/p/w500$poster_path"
+    fun getBackDropImage() = "https://image.tmdb.org/t/p/w500$backdrop_path"
 
 }

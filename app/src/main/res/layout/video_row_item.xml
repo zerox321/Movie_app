@@ -19,9 +19,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="@{(v)->MovieVideoClickListener.onItemClick(v,Item)}"
-        android:layout_margin="7dp">
-
+        android:layout_margin="7dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{(v)->MovieVideoClickListener.onItemClick(v,Item)}">
 
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -55,11 +55,12 @@
             android:id="@+id/playIv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_play_view"
             app:layout_constraintBottom_toBottomOf="@+id/ImageView"
             app:layout_constraintEnd_toEndOf="@+id/ImageView"
             app:layout_constraintStart_toStartOf="@+id/ImageView"
-            app:layout_constraintTop_toTopOf="@+id/ImageView" />
+            app:layout_constraintTop_toTopOf="@+id/ImageView"
+            app:srcCompat="@drawable/ic_play_view" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/titleTv"
             android:layout_width="0dp"

@@ -32,8 +32,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main), 
             addLoadStateListener { state ->
                 when (state.refresh) {
                     is LoadState.Loading -> viewModel.setPopularLoading(isLoading = true)
-                    is LoadState.Error -> {
-                    }
+                    is LoadState.Error -> { }
                     is LoadState.NotLoading -> viewModel.setPopularLoading(isLoading = false)
                 }
             }

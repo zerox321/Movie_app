@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="7dp"
+        android:background="?android:attr/selectableItemBackground"
         android:onClick="@{(v)->ClickListener.onItemClick(v,Item)}">
 
         <com.google.android.material.imageview.ShapeableImageView

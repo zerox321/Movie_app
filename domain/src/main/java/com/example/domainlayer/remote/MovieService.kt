@@ -1,6 +1,5 @@
 package com.example.domainlayer.remote
 
-import com.example.datalayer.constants.Constant.popularConstant
 import com.example.datalayer.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Path

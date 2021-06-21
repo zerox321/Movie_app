@@ -19,10 +19,6 @@
             name="TopRatedAdapter"
             type="com.example.moveApp.ui.home.adapter.MovieAdapter" />
 
-        <variable
-            name="UpComingAdapter"
-            type="com.example.moveApp.ui.home.adapter.MovieAdapter" />
-
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -41,30 +37,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="7dp"
+                app:layout_constraintBottom_toBottomOf="@+id/avatarIV"
                 app:layout_constraintEnd_toStartOf="@+id/notificationIv"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/avatarIV"
                 app:srcCompat="@drawable/ic_search" />
-   <androidx.appcompat.widget.AppCompatImageView
+
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/notificationIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                app:layout_constraintBottom_toBottomOf="@+id/avatarIV"
+                app:layout_constraintEnd_toStartOf="@+id/avatarIV"
+                app:layout_constraintTop_toTopOf="@+id/avatarIV"
+                app:srcCompat="@drawable/ic_notification" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/avatarIV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_notification" />
+                app:srcCompat="@drawable/ic_man" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/popularTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fab_margin"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:layout_marginEnd="@dimen/fab_margin"
                 android:padding="7dp"
                 android:text="@string/popular"
                 android:textColor="@color/white"
                 android:textSize="@dimen/headerFont"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/avatarIV" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -152,54 +161,6 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </com.facebook.shimmer.ShimmerFrameLayout>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/upComingTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fab_margin"
-                android:padding="7dp"
-                android:text="@string/up_Coming"
-                android:textColor="@color/white"
-                android:textSize="@dimen/headerFont"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topRatedShimmer" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/upComingRV"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:adapter="@{UpComingAdapter}"
-                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/upComingTv"
-                app:layout_constraintTop_toBottomOf="@+id/upComingTv"
-                tools:listitem="@layout/movie_row_item" />
-
-            <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/upComingShimmer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:animateLayoutChanges="true"
-                android:orientation="horizontal"
-                app:bindShimmer="@{viewModel.upComingLoading}"
-                app:layout_constraintStart_toStartOf="@+id/upComingTv"
-                app:layout_constraintTop_toBottomOf="@+id/upComingTv"
-                tools:visibility="invisible">
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <include layout="@layout/menu_item_placeholder_layout" />
-
-                    <include layout="@layout/menu_item_placeholder_layout" />
-
-                    <include layout="@layout/menu_item_placeholder_layout" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
-            </com.facebook.shimmer.ShimmerFrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -51,18 +51,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main), 
             }
         }
     }
-    private val upComingAdapter: MovieAdapter by lazy {
-        MovieAdapter(this).apply {
-            addLoadStateListener { state ->
-                when (state.refresh) {
-                    is LoadState.Loading -> viewModel.setUpComingLoadingLoading(isLoading = true)
-                    is LoadState.Error -> {
-                    }
-                    is LoadState.NotLoading -> viewModel.setUpComingLoadingLoading(isLoading = false)
-                }
-            }
-        }
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -72,7 +61,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main), 
             viewModel = this@MainFragment.viewModel
             popularAdapter = this@MainFragment.popularAdapter
             topRatedAdapter = this@MainFragment.topRatedAdapter
-            upComingAdapter = this@MainFragment.upComingAdapter
         }.root
     }
 
@@ -85,10 +73,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main), 
         // Todo observe Top Rated Movies response
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.topRatedFlow.collect { response -> topRatedAdapter.submitData(response) }
-        }
-        // Todo observe Up coming Movies response
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.upComingFlow.collect { response -> upComingAdapter.submitData(response) }
         }
 
     }

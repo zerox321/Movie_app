@@ -5,6 +5,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
@@ -17,6 +18,7 @@ fun ImageView.loadImage(imagePath: String?, shimmer: ShimmerFrameLayout? = null)
     shimmer?.bindShimmer(isLoading = true)
 
     Glide.with(this).load(imagePath)
+        .diskCacheStrategy(DiskCacheStrategy.DATA)
         .transition(DrawableTransitionOptions.withCrossFade())
         .listener(object : RequestListener<Drawable> {
             override fun onLoadFailed(

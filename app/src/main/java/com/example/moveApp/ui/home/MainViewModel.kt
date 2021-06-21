@@ -9,7 +9,6 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.example.moveApp.ui.home.dataSource.PopularMovieDataSource
 import com.example.moveApp.ui.home.dataSource.TopRatedMovieDataSource
-import com.example.moveApp.ui.home.dataSource.UpComingMovieDataSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -17,8 +16,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     pagerConfig: PagingConfig,
     popularMovieDataSource: PopularMovieDataSource,
-    topRatedMovieDataSource: TopRatedMovieDataSource,
-    upComingMovieDataSource: UpComingMovieDataSource
+    topRatedMovieDataSource: TopRatedMovieDataSource
 ) : ViewModel() {
     val popularFlow = Pager(pagerConfig) { popularMovieDataSource }.flow.cachedIn(viewModelScope)
     private val _popularLoading = MutableLiveData<Boolean>()
@@ -34,10 +32,5 @@ class MainViewModel @Inject constructor(
         _topRatedLoading.value = isLoading
     }
 
-    val upComingFlow = Pager(pagerConfig) { upComingMovieDataSource }.flow.cachedIn(viewModelScope)
-    private val _upComingLoading = MutableLiveData<Boolean>()
-    val upComingLoading: LiveData<Boolean> get() = _upComingLoading
-    fun setUpComingLoadingLoading(isLoading: Boolean) {
-        _upComingLoading.value = isLoading
-    }
+
 }

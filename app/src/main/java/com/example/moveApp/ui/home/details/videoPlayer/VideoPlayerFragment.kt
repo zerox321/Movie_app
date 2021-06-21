@@ -15,7 +15,6 @@ import com.example.moveApp.ui.home.details.MenuDetailsFragmentArgs
 class VideoPlayerFragment :
     BaseFragment<FragmentVideoPlayerBinding>(R.layout.fragment_video_player) {
     private val args: VideoPlayerFragmentArgs by navArgs()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {

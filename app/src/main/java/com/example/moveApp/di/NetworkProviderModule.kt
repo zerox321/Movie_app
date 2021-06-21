@@ -1,11 +1,11 @@
 package com.example.moveApp.di
 
 import androidx.paging.PagingConfig
+import com.example.datalayer.constants.Constant.pageSize
 import com.example.domainlayer.remote.MovieService
 import com.example.domainlayer.remote.MovieVideosService
 import com.example.moveApp.ui.home.dataSource.PopularMovieDataSource
 import com.example.moveApp.ui.home.dataSource.TopRatedMovieDataSource
-import com.example.moveApp.ui.home.dataSource.UpComingMovieDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,7 +32,7 @@ object NetworkProviderModule {
     // provide PagingConfig with ViewModel Scope
     @Provides
     @ViewModelScoped
-    fun providePagerConfig(): PagingConfig = PagingConfig(pageSize = 20)
+    fun providePagerConfig(): PagingConfig = PagingConfig(pageSize = pageSize)
 
     // provide PopularMovieDataSource with ViewModel Scope
     @Provides
@@ -45,13 +45,6 @@ object NetworkProviderModule {
     @Provides
     @ViewModelScoped
     fun provideTopRatedMovieDataSource(movieService: MovieService) = TopRatedMovieDataSource(
-        movieService = movieService
-    )
-
-    // provide UpComingMovieDataSource with ViewModel Scope
-    @Provides
-    @ViewModelScoped
-    fun provideUpComingMovieDataSource(movieService: MovieService) = UpComingMovieDataSource(
         movieService = movieService
     )
 

@@ -17,7 +17,7 @@ Fetching data from the network via repository pattern.
 ## Download
 Go to the [Releases](https://github.com/zerox321/Movie_app/releases) to download the latest APK.
 
-<img src="/api/gif.gif" align="right" width="32%"/>
+<img src="/preview/gif.gif" align="right" width="32%"/>
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21

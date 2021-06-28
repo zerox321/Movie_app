@@ -5,5 +5,5 @@ import com.example.moveApp.core.MovieDataSource
 
 class PopularMovieDataSource(movieService: MovieService) : MovieDataSource(movieService) {
     override val type: String
-    get() = "popular"
+        get() = "popular"
 }

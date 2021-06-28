@@ -38,8 +38,8 @@
                 android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="@color/primary"
                 app:collapsedTitleTextAppearance="@style/ExpandedToolbarLayoutExpandedTextStyle"
+                app:contentScrim="@color/primary"
                 app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 

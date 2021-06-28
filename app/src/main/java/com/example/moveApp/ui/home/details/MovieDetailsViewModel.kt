@@ -2,7 +2,6 @@ package com.example.moveApp.ui.home.details
 
 import androidx.lifecycle.SavedStateHandle
 import com.example.datalayer.model.Movie
-import com.example.datalayer.model.MovieVideo
 import com.example.datalayer.model.VideoResponse
 import com.example.moveApp.core.BaseResponse
 import com.example.moveApp.core.BaseViewModel

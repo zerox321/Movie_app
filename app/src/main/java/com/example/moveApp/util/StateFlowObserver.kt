@@ -4,7 +4,6 @@ import androidx.lifecycle.LifecycleCoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.launch
 
 object StateFlowObserver {
 

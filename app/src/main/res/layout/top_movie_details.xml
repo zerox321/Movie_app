@@ -102,6 +102,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="2021 | 2h 35 min | Action" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/genersTv"
             android:layout_width="0dp"

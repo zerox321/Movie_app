@@ -19,7 +19,7 @@ class MovieAdapter(private val clickListener: MovieClickListener) :
 
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) =
-        holder.bind(item=getItem(position))
+        holder.bind(item = getItem(position))
 
 
 }
